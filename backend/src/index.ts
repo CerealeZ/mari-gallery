@@ -120,7 +120,7 @@ app.post(
     await imagesCollection.insertOne({
       ownerId: userId,
       image: {
-        url: data.url,
+        url: data.secure_url,
         publicId: data.public_id,
         metadata: {
           width: data.width,
