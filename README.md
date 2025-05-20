@@ -7,6 +7,12 @@
 
 ## Descripción
 
+Sube imágenes, visualízalas y compártelas a quienes quieras.
+
+## Link (desactivado por ahora, lo activaré cuando esté más activo)
+
+https://mari-gallery-1.onrender.com/
+
 ![image](https://github.com/user-attachments/assets/9f903dbf-50fa-4110-9538-891f0df90010)
 
 ## Subida de imágenes
