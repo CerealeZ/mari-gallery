@@ -7,7 +7,7 @@
 
 ## Descripción
 
-Sube imágenes, visualízalas y compártelas a quienes quieras.
+Sube imágenes, visualízalas y compártelas a quienes quieras. Hecho desde 0 y con una vaso de cocacola y unas ganas de morir para terminar todo lo necesario a tiempo 💀
 
 ## Link (desactivado por ahora, lo activaré cuando esté más activo)
 
