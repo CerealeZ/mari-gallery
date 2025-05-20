@@ -1,12 +1,15 @@
 import {
   Blockquote,
   Box,
+  Center,
   Flex,
   Heading,
+  Icon,
   Image,
   Link,
   Show,
   Text,
+  VStack,
 } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router";
 
@@ -17,15 +20,14 @@ import { Button, Dialog, Portal } from "@chakra-ui/react";
 import { useState } from "react";
 import useSWRImmutable from "swr/immutable";
 import { SignInButton, useUser } from "@clerk/clerk-react";
+import { ImageIcon } from "lucide-react";
 
 export default function ImagePreview() {
   const { imageId } = useParams();
   const [error, setError] = useState<string | null>(null);
-
-  const { isSignedIn } = useUser();
-
+  const { isSignedIn, isLoaded } = useUser();
   const { data, isLoading } = useSWRImmutable(
-    isSignedIn ? ["MyNewNewImage", imageId] : null,
+    isLoaded ? ["MyNewNewImage", imageId] : null,
     async () => {
       return axiosClient
         .get<{
@@ -151,7 +153,19 @@ export default function ImagePreview() {
 
   return (
     <Box width={"100%"} maxWidth={"breakpoint-2xl"} mx={"auto"}>
-      <Show when={!isLoading} fallback={<h1>Loading...</h1>}>
+      <Show
+        when={!isLoading && isLoaded}
+        fallback={
+          <Center minH={"dvh"}>
+            <VStack>
+              <Icon size={"2xl"} animation={"spin"}>
+                <ImageIcon />
+              </Icon>
+              <Text fontWeight={"bold"}>Cargando imagen...</Text>
+            </VStack>
+          </Center>
+        }
+      >
         <Show when={data} fallback={"Hubo un error"}>
           {(data) => {
             return (

@@ -138,7 +138,7 @@ export const ImageDetailsDrawer = ({
               </Dialog.Title>
             </Dialog.Header>
 
-            <Dialog.Body display={'contents'} onClick={() => setSelected("")}>
+            <Dialog.Body display={"contents"} onClick={() => setSelected("")}>
               <TransformWrapper>
                 <TransformComponent
                   wrapperStyle={{
@@ -196,14 +196,15 @@ export const ImageDetailsDrawer = ({
 
                 <PermissionManager
                   imageId={imageId}
-                  onSubmit={(data) => {
-                    updatePermissions(
+                  onSubmit={async (data, mutate) => {
+                    await updatePermissions(
                       {
                         allowedEmails: data.allowedEmails,
                         permission: data.permission,
                       },
                       imageId
                     );
+                    mutate();
                   }}
                 >
                   {(Trigger) => {
